@@ -1,0 +1,262 @@
+@charset "utf8";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+/* Utilitários */
+
+/* Mudando o comportamento do Box Model */
+*, *::before, *::after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Técnica para conter os floats e evitar que elementos entrem em colapso.
+Adiciona-se um espaço vazio antes e depois dos elementos, e um clear nos dois lados. */
+.clearfix::before, .clearfix::after { content: ""; display: table; }
+.clearfix::after { clear: both; }  
+.clearfix { *zoom: 1; }
+
+
+
+/*** Fluxo de Trabalho Mobile First ***/
+
+/* Regras iniciais que irão valer para 
+qualquer tamanho de tela */
+
+/* Determinando o tamanho base da fonte 
+1rem = 16px */
+html { font-size: 16px; }
+
+body {
+    font-family: "Open Sans", Arial, sans-serif;
+}
+
+/* Resets personalizados */
+p, h1, h2, figure {
+    margin: 0;
+    padding: 0;
+}
+
+#topo { /* header */
+    background-color: #ededed;
+    border-bottom: solid #3b90f0 1px;
+}
+
+h1 { text-align: center; }
+
+/* Diminuindo o logo contido no h1 */
+h1 img { width: 150px; } 
+
+
+/* Habilitando como um elemento flex */
+nav {
+    display: flex;
+    
+    /* Define a disposição do conteúdo
+    podendo ser row (padrão, horizontal) ou
+    column (vertical) */
+    flex-direction: row;
+    
+    justify-content: space-around;
+    align-items: center;
+    
+    min-height: 40px;
+}
+
+/* Estados inicial e visitado dos links em nav */
+nav a:link, nav a:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #3b90f0;
+    font-weight: bold;
+    font-size: 0.9rem;
+    
+    /* Fazendo com que os links tenham 
+    a mesma altura do nav (elemento pai) */
+    min-height: inherit;
+    
+    /* Habilitando o modo flex para os links,
+    permitindo definir o alinhamento e tamanho */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+}
+
+/* Estados de acionamento */
+nav a:hover, nav a:focus {
+    background-color: #606060;
+    color: white;
+}
+
+/* Tornando as imagens e os iframes responsivos */
+img, iframe { max-width: 100%; }
+
+iframe {
+    /* Removendo a borda do iframe */
+    border: none;
+    
+    /* Convertendo para nível bloco */
+    display: block;
+    
+    /* Determinando largura e alinhamento */
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Garantindo que a imagem do slider
+fique centralizada mesmo em telas maiores */
+#destaque img {
+    display: block;
+    margin: auto;
+}
+
+#call-to-action {
+    color: white;
+    background-color: #a40099;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+}
+
+
+/* Reduzindo proporcionalmente as imagens
+em #desenvolvedor, e ao mesmo tempo
+as mantendo responsivas */
+#desenvolvedor img { max-width: 25%; }
+
+figure { text-align: center; }
+
+#historia {
+    background-image: url(../img/fundo-historia.jpg);
+    background-attachment: fixed;
+    color: white;
+}
+
+#conteudo article { padding-bottom: 20px; }
+
+/* Exercícios */
+
+/* 01) Criar regra para formatar os h2 e paragrafos do conteúdo conforme a seguir:
+-espaçamento interno de 2% para cima e baixo
+-espaçamento interno de 1% para esquerda e direita */
+#conteudo h2, #conteudo p { padding: 2% 1%; }
+
+/* 02) Criar regra para formatar somente o h2 do destaque conforme a seguir:
+-cor do texto: #df1a9c
+-alinhamento do texto à esquerda
+-espaçamento interno de 0 para cima e baixo
+-espaçamento interno de 1% para esquerda e direita */
+
+#conteudo h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#destaque h2, #destaque p { padding: 0 1%; }
+
+#destaque h2 { 
+    color: #df1a9c; 
+    text-align: left;
+}
+
+/* 03) Criar regra para formatar somente o parágrafo do destaque conforme a seguir:
+-cor do texto: #3b90f0 
+-texto em negrito
+-tamanho da fonte de 1.1rem 
+-espaçamento interno de 0 para cima e baixo
+-espaçamento interno de 1% para esquerda e direita*/
+#destaque p {
+    color: #3b90f0; 
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+#rodape {
+    text-align: center;
+    padding: 1%;
+    font-size: 0.6rem;
+    background-color: #151515;
+    color: #ccc;
+    border-bottom: solid 10px #3b90f0;
+}
+
+
+/* Definição de Breakpoints (pontos de adaptação)
+Criação de Media Queries de acordo com as necessidades do layout/conteúdo */ 
+
+
+/* Breakpoint para telas a partir de 540px */
+@media screen and (min-width: 540px){
+    /* Tornando o header (#topo) fixo, utilizando
+    a propriedade position e determinando suas 
+    coordenadas de posicionamento.
+    Obs.: misturar técnicas diferentes de posicionamento
+    pode dificultar os ajustes ou até mesmo inviabilizar esta utilização. */
+    #topo {
+        position: fixed;
+        /* Coordenadas */
+        top: 0; right: 0; left: 0;
+    }
+    
+    /* Habilitando o modo flex SOMENTE para conteúdo
+    dentro do #topo e contextualizado em uma DIV */
+    #topo div {
+        display: flex; 
+        justify-content: space-between;
+    }
+    
+    h1 {
+        width: 30%;
+        margin-top: 5px;
+    }
+    
+    nav { width: 60%; }
+    
+    #conteudo { margin-top: 40px; }
+} /* fim breakpoint 540px */
+
+
+/* Breakpoint para telas a partir de 645px */
+@media screen and (min-width: 645px){
+    html { font-size: 18px; }
+    h1 img { width: 180px; }
+    #conteudo { margin-top: 52px; }
+} /* fim breakpoint 645px */
+
+
+/* Breakpoint para telas a partir de 800px */
+@media screen and (min-width: 800px){
+    html { font-size: 20px; }
+    h1 img { width: 200px; }
+    #conteudo { margin-top: 60px; }
+} /* fim breakpoint 800px */
+
+
+/* Breakpoint para telas a partir de 1100px */
+@media screen and (min-width: 1100px){
+    #topo div, 
+    #conteudo h2, #conteudo p, 
+    #conteudo iframe, #rodape h2, #rodape p {
+        max-width: 1100px;
+        margin: auto;
+    }    
+    h1 { text-align: left;}
+    
+    nav { min-height: 65px; }
+    
+    #conteudo { margin-top: 80px; }
+} /* fim breakpoint 1100px */
+
+
+
+
+
+
+
+
+
+

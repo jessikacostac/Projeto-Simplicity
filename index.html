@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simplicity</title>
+<link rel="icon" href="img/favicon.png" sizes="64x64">
+<link rel="stylesheet" href="css/normalize.min.css">
+<link rel="stylesheet" href="slick/slick.css">
+<link rel="stylesheet" href="slick/slick-theme.css">
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<header id="topo">
+    <!-- DIV envolvendo os elementos
+    controlados pelo flexbox -->
+    <div>
+        <h1>
+            <a href="">
+            <img src="img/logo.png" alt="Logo">
+            </a>
+        </h1>
+        <nav>
+            <a href="">Home</a>
+            <a href="">Produtos</a>
+            <a href="">Serviços</a>
+            <a href="">Contato</a>
+        </nav>
+    </div>
+</header>
+
+<main id="conteudo">
+<!-- tags para subdivisão de conteúdo 
+article: determinar conteúdo autosuficiente
+section: ajudar na divisão de conteúdo em contextos 
+aside: determinar conteúdo complementar/auxiliar
+div: deve ser usado principalmente como auxílio para construção/configuração de áreas de layout.
+-->    
+    <article id="destaque">
+       <div>
+           <h2>HTML5 e CSS3</h2>
+           <img src="img/destaque01.jpg" alt="">
+           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, tempora.</p>
+       </div>
+       
+       <div>
+           <h2>JavaScirpt</h2>
+           <img src="img/destaque02.jpg" alt="">
+           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, consequuntur!</p>
+       </div>
+       
+       <div>
+           <h2>Bootstrap</h2>
+           <img src="img/destaque03.jpg" alt="">
+           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, magni.</p>          
+        </div>
+            
+    </article>   
+    
+    <aside id="call-to-action">
+        <p>Um profissional de internet pode atuar em diversas carreiras, como designer, programador ou mesmo no planejamento.</p>
+    </aside>      
+    
+    <article id="desenvolvedor">
+        <h2>Desenvolvedor Full Stack </h2>
+        <p>O desenvolvedor Front End é o profissional que cuida da parte do código que é interpretada diretamente pelo navegador.</p>
+        <p>No desenvolvimento por camadas, HTML é o responsável pela marcação conteúdo, o CSS cuida do estilo e o JavaScript é responsável pelo comportamento.</p>
+        <figure>
+            <img src="img/logohtml5.jpg" alt="">
+            <img src="img/logocss.jpg" alt="">
+            <img src="img/logojs.jpg" alt="">
+        </figure>
+    </article>   
+    
+    <article id="historia">
+        <h2>A história da Internet</h2>
+        <iframe width="854" height="480" src="https://www.youtube.com/embed/jlkvzcG1UMk?ecver=1" allowfullscreen></iframe>
+    </article>  
+    
+    <article id="localizacao">
+        <h2>Localização</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.1759065861906!2d-46.54243608588156!3d-23.52617478470034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5e45de28bb23%3A0x1d2ed3122aae28a7!2sSenac+Penha!5e0!3m2!1spt-BR!2sbr!4v1508152629447" width="600" height="450" style="border:0" allowfullscreen></iframe>
+    </article>
+</main>
+
+<footer id="rodape">
+    <h2>HTML5 e CSS3</h2>
+    <p>Simplicity é um site fictício desenvolvido educacionalmente <br>Senac Penha - 2017 - Direitos Reservados</p>
+</footer>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="slick/slick.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#destaque").slick({
+        autoplay: true, autoplaySpeed: 2000,
+        dots: true, arrows: true
+    });
+    
+  
+    
+});   
+    
+    
+</script>
+
+</body>
+</html>
